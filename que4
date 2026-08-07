@@ -1,1 +1,71 @@
+import java.io.*;
 
+public class ArrayOperations {
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int arr[] = new int[10];
+        int max, min, sum = 0;
+        int even = 0, odd = 0;
+
+        System.out.println("Enter 10 integers:");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Element " + (i + 1) + ": ");
+            arr[i] = Integer.parseInt(br.readLine());
+        }
+
+        max = arr[0];
+        min = arr[0];
+
+        for (int i = 0; i < 10; i++) {
+
+            if (arr[i] > max)
+                max = arr[i];
+
+            if (arr[i] < min)
+                min = arr[i];
+
+            sum = sum + arr[i];
+
+            if (arr[i] % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+
+        double average = (double) sum / 10;
+
+        System.out.print("Enter number to search: ");
+        int search = Integer.parseInt(br.readLine());
+
+        boolean found = false;
+
+        for (int i = 0; i < 10; i++) {
+            if (arr[i] == search) {
+                found = true;
+                break;
+            }
+        }
+
+        System.out.println("\n----- Result -----");
+        System.out.println("Maximum Element = " + max);
+        System.out.println("Minimum Element = " + min);
+        System.out.println("Average = " + average);
+        System.out.println("Even Numbers = " + even);
+        System.out.println("Odd Numbers = " + odd);
+
+        if (found)
+            System.out.println(search + " is found in the array.");
+        else
+            System.out.println(search + " is not found in the array.");
+
+        System.out.print("Array in Reverse Order: ");
+
+        for (int i = 9; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
