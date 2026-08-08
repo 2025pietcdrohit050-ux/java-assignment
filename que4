@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class ArrayOperations {
+class ArrayOperations {
 
     public static void main(String[] args) throws IOException {
 
